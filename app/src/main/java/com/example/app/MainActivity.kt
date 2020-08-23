@@ -62,11 +62,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun verify(user: User): Boolean {
-        return if (user.username?.let { it.length > 3 } == true && user.password?.let { it.length > 3 } == true) {
-            true
-        } else {
+
+        if (user.username?.length ?: 0 < 4) {
             Utils.toast("用户名不合法")
-            false
+            return false
         }
+        if (user.password?.length ?: 0 < 4) {
+            Utils.toast("密码不合法")
+            return false
+        }
+
+        return true
     }
 }
