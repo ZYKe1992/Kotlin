@@ -1,9 +1,9 @@
 package com.example.lesson.entity
 
 data class Lesson(
-        val date: String?,
-        val content: String?,
-        val state: State
+        var date: String?,
+        var content: String?,
+        var state: State
 ) {
     enum class State(val stateName: String) {
         PLAYBACK ("有回放"),
